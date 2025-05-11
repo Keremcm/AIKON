@@ -23,10 +23,10 @@ def loading_animation():
     """Dinamik bir yükleme animasyonu gösterir."""
     for _ in range(10):
         for char in "|/-\\":
-            sys.stdout.write(f"\r\033[1;33mYükleniyor... {char}\033[0m")
+            sys.stdout.write(f"\r\033[1;36mAikon işlemde... {char}\033[0m")
             sys.stdout.flush()
             time.sleep(0.1)
-    sys.stdout.write("\r\033[1;32mYükleme tamamlandı!       \033[0m\n")
+    sys.stdout.write("\r\033[1;32m✔️ Aikon hazır.                            \033[0m\n")
     
 def print_boxed_message(message):
     """Mesajı çerçeve içinde yazdırır."""
@@ -107,12 +107,16 @@ threading.Thread(target=prepare_model, daemon=True).start()
 print("\033c", end="")
 print("\033[2J\033[H", end="")
 
-print("\033[38;5;117mAsistanNet başlatıldı. Komut gönderin veya çıkmak için Ctrl + C yapın.\033[0m")
+print("\033[1;36m═" * 60)
+print("\033[1;32mAikonNet v1.0 Başlatıldı — Zeka, Güvenlik ve Stil Hazır\033[0m")
+print("\033[1;36m═" * 60)
+print("\033[1;33mKomut girin ya da çıkmak için Ctrl + C kullanın...\033[0m")
+
 
 # Sonsuz döngüde sürekli olarak kullanıcıdan girdi al
 while True:
     # Kullanıcıdan giriş al
-    user_input = input("\033[38;5;208m\n>>> \033[0m").strip()
+    user_input = input("\033[1;35m[Aikon Komut] ⨠ \033[0m").strip()
     user_input = user_input + f"\n{datetime.now().strftime('%H:%M')}"
     model_active = True
 
@@ -135,8 +139,8 @@ while True:
         response_text = str(response)  # Eğer sözlük değilse, düz metin olarak al
 
     # Sadece son cevabı çerçeve içinde göster
-    print_boxed_message(f"Asistan: {response_text}")
-    conversation_history += f"Asistan: {response_text}\n"
+    print_boxed_message(f"AIKON: {response_text}")
+    conversation_history += f"AIKON: {response_text}\n"
     model_active = False
 
     # İlerleme çubuğu
