@@ -42,7 +42,7 @@
 
  ⁂ Kurulum & Başlangıç:
     1) Depoyu klonlayın:
-       git clone https://github.com/username/AIKON.git && cd AIKON
+       git clone https://github.com/Keremcm/AIKON.git && cd AIKON
 
     2) Gerekli kütüphaneler:
        pip install -r requirements.txt
