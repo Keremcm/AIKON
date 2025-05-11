@@ -19,6 +19,21 @@ def prepare_model():
         print("Ollama servisi başlatılamadı. Lütfen kontrol edin.")
         exit()
         
+def otonom_dongu():
+    global otonom
+    while True:
+        time.sleep(60)  # 1 dakikada bir kontrol
+        
+        if otonom:
+            prompt = "Sahip olduğun araçları kullanarak önemli veya kullanıcıya bildirilmesi gereken bir durum var mı kısaca ve gelen mesaj var mı kontrol et. Kullanıcı bilgilerini içeren belleği kullanarak öneriler sunabilirsin. Gelen mesaja cevap gönder veya durumu bildir."
+            try:
+                sonuc = agent.invoke(prompt)
+                print(f"\033[38;5;208m\[Otonom]: {sonuc} \033[0m")  # Gri yazı
+            except Exception as e:
+                print(f"Hata: {e}")
+        else:
+            pass
+        
 def loading_animation():
     """Dinamik bir yükleme animasyonu gösterir."""
     for _ in range(10):
@@ -53,6 +68,7 @@ EVENTS_FILE = "takvim.json"
 MEMORY_FILE = "memory.json"
 
 otonom = False  # Otonom mod başlangıçta kapalı
+threading.Thread(target=otonom_dongu, daemon=True).start()  # Otonom döngüyü başlat
 
 # Tool'ları içe aktar
 from tools.camera_vision import camera_vision
