@@ -59,13 +59,12 @@ pygame.mixer.init()
 
 # Telegram botu için gerekli ayarlar
 BOT_TOKEN = "YOUR_BOT_TOKEN"
-USER_ID = 6769405767  # Sadece bu ID'den mesaj al
+USER_ID = <USER_ID>  # Sadece bu ID'den mesaj al
 last_update_id = None
 
 BASE_URL = f"https://api.telegram.org/bot{BOT_TOKEN}"
 
 EVENTS_FILE = "takvim.json"
-MEMORY_FILE = "memory.json"
 
 otonom = False  # Otonom mod başlangıçta kapalı
 threading.Thread(target=otonom_dongu, daemon=True).start()  # Otonom döngüyü başlat
