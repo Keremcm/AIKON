@@ -2,8 +2,8 @@ from urllib.parse import urlparse
 import requests, datetime, os, json
 
 
-BOT_TOKEN = "8023242841:AAFXUhTwu_23DS_L9GlBAmYkWc2F46shbos"
-USER_ID = 6769405767  # Sadece bu ID'den mesaj al
+BOT_TOKEN = "BOT_TOKEN"
+USER_ID = <USER_ID>  # Sadece bu ID'den mesaj al
 BASE_URL = f"https://api.telegram.org/bot{BOT_TOKEN}"
 last_update_id = None
 
